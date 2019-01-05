@@ -58,19 +58,26 @@ void Firework::explode() {
         float theta = ofRandom(0, TWO_PI);
         float r;
         float p = ofRandom(1);
-        if (p < 0.5) {
-          r = ofRandom(0, pmax / 2);
+        if (p < 0.33) {
+          r = ofRandom(0, pmax / 3);
+        }
+        else if (p >= 0.33 && p < 0.66) {
+          r = ofRandom(pmax / 3, 2 * pmax / 3);
         }
         else {
-          r = ofRandom(pmax / 2, pmax);
+          r = ofRandom(2 * pmax / 3, pmax);
         }
         float x = r * cos(theta);
         float y = r * sin(theta);
         ofVec3f f;
         f.set(x, y, 0);
-        if (r < pmax / 2) {
+        if (r < pmax / 3) {
           particles.push_back(Particle(h1, s1, b1, 2, particleType, x0, y0, z0));
           particles_mod.push_back(Particle(h1, s1, b1, 2, particleType, x0, y0, z0));
+        }
+        else if (r >= pmax / 3 && r < 2 * pmax / 3) {
+          particles.push_back(Particle((h1 + h2) / 2, s1, b1, 2, particleType, x0, y0, z0));
+          particles_mod.push_back(Particle((h1 + h2) / 2, s1, b1, 2, particleType, x0, y0, z0));
         }
         else {
           particles.push_back(Particle(h2, s1, b1, 2, particleType, x0, y0, z0));
