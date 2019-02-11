@@ -1,6 +1,8 @@
 # Fireworks
 Simple fireworks on openFrameworks.
 
+<img src = "img/demo.gif">
+
 ## Parameters
 Four parameters are controllable.
 
@@ -12,8 +14,8 @@ Four parameters are controllable.
 |Maximum size|Maximum size of fireworks|
 
 ## Screenshots
-<img src = "screenshot_01.png" width = "720">
+<img src = "img/screenshot_01.jpg">
 
-<img src = "screenshot_02.png" width = "720">
+<img src = "img/screenshot_02.jpg">
 
-<img src = "screenshot_03.png" width = "720">
+<img src = "img/screenshot_03.jpg">
