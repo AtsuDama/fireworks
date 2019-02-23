@@ -1,8 +1,5 @@
 #pragma once
-
-#include "ofMain.h"
-#include "Particle.h"
-#include "Firework.h"
+#include "ManagementSystem.h"
 #include "ofxGui.h"
 
 class ofApp : public ofBaseApp {
@@ -24,15 +21,15 @@ class ofApp : public ofBaseApp {
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		ofVboMesh vboMesh;
+		void capture(int start, int end);
 
 		ofxIntSlider pCount;
 		ofxIntSlider nl;
 		ofxIntSlider iFrame;
 		ofxIntSlider pmax;
 		ofxPanel gui;
-
-		vector<Firework*> fireworks;
 		int frameCount;
 		ofImage img;
+		ManagementSystem system;
+
 };

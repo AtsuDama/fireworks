@@ -19,20 +19,20 @@ Particle::Particle(float _h, float _s, float _b, int _r, float _particleType, fl
 }
 
 void Particle::particleColorSet() {
-  if (particleType <= 0.5) {
+  if (particleType <= 0.4) {
     col.setHsb(h, s, b, lifetime / 2);
-  } else if (particleType > 0.5 && particleType <= 0.6) {
+  } else if (particleType > 0.4 && particleType <= 0.45) {
     col.setHsb(ofRandom(1), ofRandom(1), ofRandom(1), lifetime / 2);
-  } else if (particleType > 0.6 && particleType <= 0.7) {
+  } else if (particleType > 0.45 && particleType <= 0.6) {
     col.setHsb(h * abs(cos(1.5 * lifetime)), s, b, lifetime / 2);
-  } else if (particleType > 0.7 && particleType <= 0.9) {
+  } else if (particleType > 0.6 && particleType <= 0.8) {
     if (ofRandom(1) < 0.2) {
       col.setHsb(h, s, b, lifetime);
     } else {
       col.setHsb(1.0, 0.0, 0.0, 0.0);
     }
-  } else if (particleType > 0.9 && particleType <= 1.0) {
-    if (ofRandom(1) < 0.5) {
+  } else if (particleType > 0.8 && particleType <= 1.0) {
+    if (ofRandom(1) < 0.7) {
       col.setHsb(h, s, b, lifetime);
     } else {
       col.setHsb(1.0 - h, s, b, lifetime);

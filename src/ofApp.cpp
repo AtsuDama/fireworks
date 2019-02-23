@@ -1,6 +1,4 @@
 #include "ofApp.h"
-#include "Particle.h"
-#include "Firework.h"
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -13,12 +11,12 @@ void ofApp::setup() {
   //ofEnableBlendMode(OF_BLENDMODE_ADD);
   //ofEnableAlphaBlending();
   frameCount = 0;
-
   gui.setup();
-  gui.add(pCount.setup("Particle", 1000, 100, 10000));
-  gui.add(nl.setup("Launch", 1, 1, 50));
-  gui.add(iFrame.setup("Interval", 60, 1, 600));
-  gui.add(pmax.setup("Maximum Size", 8, 2, 12));
+  gui.add(pCount.setup("Particle", 3000, 1000, 10000));
+  gui.add(nl.setup("Launch", 2, 1, 50));
+  gui.add(iFrame.setup("Interval", 20, 1, 600));
+  gui.add(pmax.setup("Maximum Size", 11, 2, 12));
+  system = ManagementSystem();
 }
 
 //--------------------------------------------------------------
@@ -28,49 +26,24 @@ void ofApp::update() {
 
 //--------------------------------------------------------------
 void ofApp::draw() {
+  //system.programedLaunch();
   //ofEnableAlphaBlending();
   ofEnableBlendMode(OF_BLENDMODE_ALPHA);
   ofSetColor(0, 0, 0, 40);
   ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
   ofDisableAlphaBlending();
   ofEnableBlendMode(OF_BLENDMODE_ADD);
-  vboMesh.clear();
-  if (frameCount % iFrame == 0) {
-    for (int i = 0; i < nl; i++) {
-      fireworks.push_back(new Firework(pCount, pmax));
-    }
-  }
-  for (auto i = 0u; i < fireworks.size(); i++) {
-    fireworks[i]->launch();
-    fireworks[i]->explode();
-    fireworks[i]->update();
-    for (auto j = 0u; j < fireworks[i]->particles.size(); j++) {
-      vboMesh.addVertex(fireworks[i]->particles[j].position);
-      vboMesh.addColor(fireworks[i]->particles[j].col);
-      if (fireworks[i]->offset == 0) {
-        vboMesh.addVertex(fireworks[i]->particles_mod[j].position);
-        vboMesh.addColor(fireworks[i]->particles_mod[j].col);
-      }
-      else if (fireworks[i]->offset == 1) {
-        ofVec3f p;
-        p.set(ofRandom(-5, 5), ofRandom(-5, 5), ofRandom(-5, 5));
-        vboMesh.addVertex(fireworks[i]->particles_mod[j].position + p);
-        vboMesh.addColor(fireworks[i]->particles_mod[j].col);
-      }
-    }
-    if (fireworks[i]->statusTotal() == 0 && fireworks[i]->particles.size() > 1) {
-      fireworks.erase(fireworks.begin() + i);
-    }
-  }
-  vboMesh.setMode(OF_PRIMITIVE_POINTS);
-  glPointSize(3.0);
-  vboMesh.draw();
-  frameCount += 1;
+  system.run(frameCount, pCount, nl, iFrame, pmax);
   gui.draw();
-
-  //stringstream ss;
-  //ss << "Framerate: " << ofToString(ofGetFrameRate(), 0);
-  //ofDrawBitmapString(ss.str(), 10, 20);
+  frameCount ++;
+  //capture(600, 1200);
+}
+//--------------------------------------------------------------
+void ofApp::capture(int start, int end) {
+  if (frameCount > start && frameCount < end) {
+    img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+    img.save("tmp/screenshot_" + ofGetTimestampString() + ".bmp", OF_IMAGE_QUALITY_BEST);
+  }
 }
 
 //--------------------------------------------------------------

@@ -1,17 +1,16 @@
 #pragma once
-#include "ofMain.h"
 #include "Particle.h"
 
-class Firework {
+class FireworkBase {
 
   public:
 
-    Firework(int _n, int _pmax);
+    FireworkBase(int _n, int _pmax);
 
-    void update();
-    void launch();
-    void explode();
-    int statusTotal();
+    virtual void update();
+    virtual void launch();
+    virtual void explode();
+    virtual int statusTotal();
     vector<Particle> particles;
     vector<Particle> particles_mod;
     int n;
@@ -23,7 +22,6 @@ class Firework {
     float b2;
     int pmax;
     int status;
-    float shapeType;
     float particleType;
     int offset;
 
