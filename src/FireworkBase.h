@@ -24,5 +24,6 @@ class FireworkBase {
     int status;
     float particleType;
     int offset;
+    ofSoundPlayer soundPlayer;
 
 };

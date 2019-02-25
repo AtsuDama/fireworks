@@ -46,6 +46,7 @@ void ManagementSystem::toMesh() {
       }
     }
     if (fireworks[i]->statusTotal() == 0 && fireworks[i]->particles.size() > 1) {
+      fireworks[i]->soundPlayer.unload();
       fireworks.erase(fireworks.begin() + i);
     }
   }

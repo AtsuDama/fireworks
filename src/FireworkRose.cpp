@@ -22,6 +22,11 @@ void FireworkRose::explode() {
       particles[i + 1].addForce(f);
       particles_mod[i + 1].addForce(f);
     }
+    float pan = ofMap(particles[0].position.x, 0, ofGetWidth(), -1.0f, 1.0f);
+    float vol = ofMap(pmax, 2, 12, 0.5f, 3.0f);
+    soundPlayer.setPan(pan);
+    soundPlayer.setVolume(vol);
+    soundPlayer.play();
     particles.erase(particles.begin() + 0);
     particles_mod.erase(particles_mod.begin() + 0);
   }

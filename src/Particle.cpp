@@ -26,7 +26,7 @@ void Particle::particleColorSet() {
   } else if (particleType > 0.45 && particleType <= 0.6) {
     col.setHsb(h * abs(cos(1.5 * lifetime)), s, b, lifetime / 2);
   } else if (particleType > 0.6 && particleType <= 0.8) {
-    if (ofRandom(1) < 0.2) {
+    if (ofRandom(1) < 0.1) {
       col.setHsb(h, s, b, lifetime);
     } else {
       col.setHsb(1.0, 0.0, 0.0, 0.0);
