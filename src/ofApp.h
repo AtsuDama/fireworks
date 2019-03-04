@@ -27,6 +27,7 @@ class ofApp : public ofBaseApp {
 		ofxIntSlider nl;
 		ofxIntSlider iFrame;
 		ofxIntSlider pmax;
+		ofxIntSlider pSize;
 		ofxPanel gui;
 		int frameCount;
 		ofImage img;

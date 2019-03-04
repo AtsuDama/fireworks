@@ -52,11 +52,11 @@ void ManagementSystem::toMesh() {
   }
 }
 
-void ManagementSystem::run(int frameCount, int pCount, int nl, int iFrame, int pmax) {
+void ManagementSystem::run(int frameCount, int pCount, int nl, int iFrame, int pmax, int pSize) {
   vboMesh.clear();
   fireworkSelector(frameCount, pCount, nl, iFrame, pmax);
   toMesh();
   vboMesh.setMode(OF_PRIMITIVE_POINTS);
-  glPointSize(3.0);
+  glPointSize(pSize);
   vboMesh.draw();
 }

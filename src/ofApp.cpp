@@ -12,10 +12,11 @@ void ofApp::setup() {
   //ofEnableAlphaBlending();
   frameCount = 0;
   gui.setup();
-  gui.add(pCount.setup("Particle", 3000, 1000, 10000));
-  gui.add(nl.setup("Launch", 2, 1, 50));
-  gui.add(iFrame.setup("Interval", 20, 1, 600));
-  gui.add(pmax.setup("Maximum Size", 11, 2, 12));
+  gui.add(pCount.setup("Particle", 3000, 500, 10000));
+  gui.add(nl.setup("Launch", 1, 1, 50));
+  gui.add(iFrame.setup("Interval", 10, 1, 600));
+  gui.add(pmax.setup("Maximum Size", 10, 2, 12));
+  gui.add(pSize.setup("Point Size", 3, 1, 5));
   system = ManagementSystem();
 }
 

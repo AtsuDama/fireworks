@@ -15,7 +15,7 @@ class ManagementSystem {
 
     void fireworkSelector(int frameCount, int pCount, int nl, int iFrame, int pmax);
     void toMesh();
-    void run(int frameCount, int pCount, int nl, int iFrame, int pmax);
+    void run(int frameCount, int pCount, int nl, int iFrame, int pmax, int pSize);
 		void programedLaunch();
 
 		ofVboMesh vboMesh;
