@@ -4,7 +4,7 @@ Simple fireworks on openFrameworks.
 <img src = "img/demo.gif">
 
 ## Parameters
-Four parameters are controllable.
+Five parameters are controllable.
 
 |Parameters|Contents|
 |:---|:---|
@@ -12,6 +12,7 @@ Four parameters are controllable.
 |Launch|Number of fireworks launched at a same time|
 |Interval|Launching interval (frame)|
 |Maximum size|Maximum size of fireworks|
+|Point size|Point size of fireworks|
 
 ## Screenshots
 <img src = "img/screenshot_01.jpg">
