@@ -4,6 +4,7 @@
 #include "FireworkTripleColors.h"
 #include "FireworkRainbowColors.h"
 #include "FireworkRose.h"
+#include "FireworkRoseKai.h"
 #include "FireworkHeart.h"
 #include "FireworkStar.h"
 

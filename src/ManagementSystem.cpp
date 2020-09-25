@@ -10,18 +10,18 @@ void ManagementSystem::fireworkSelector(int frameCount, int pCount, int nl, int 
       //float probability = 0.99;
       if (probability < 0.8) {
         fireworks.push_back(new FireworkBase(pCount, pmax));
-      } else if (probability >= 0.8 && probability < 0.82) {
+      } else if (probability >= 0.8 && probability < 0.85) {
         fireworks.push_back(new FireworkDoubleColors(pCount, pmax));
-      } else if (probability >= 0.82 && probability < 0.90) {
+      } else if (probability >= 0.85 && probability < 0.90) {
         fireworks.push_back(new FireworkTripleColors(pCount, pmax));
-      } else if (probability >= 0.90 && probability < 0.91) {
+      } else if (probability >= 0.90 && probability < 0.92) {
         fireworks.push_back(new FireworkRainbowColors(pCount, pmax));
-      } else if (probability >= 0.91 && probability < 0.93){
-        fireworks.push_back(new FireworkRose(pCount / 2, pmax));
-      } else if (probability >= 0.93 && probability < 0.95) {
+      } else if (probability >= 0.92 && probability < 0.95){
+        fireworks.push_back(new FireworkRoseKai(pCount / 2, pmax));
+      } else if (probability >= 0.95 && probability < 0.975) {
         fireworks.push_back(new FireworkHeart(pCount / 2, pmax));
       } else {
-        fireworks.push_back(new FireworkStar(pCount, pmax));
+        fireworks.push_back(new FireworkStar(pCount / 2, pmax));
       }
     }
   }
