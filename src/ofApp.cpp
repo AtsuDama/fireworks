@@ -12,11 +12,12 @@ void ofApp::setup() {
   //ofEnableAlphaBlending();
   frameCount = 0;
   gui.setup();
-  gui.add(pCount.setup("Particle", 3000, 500, 10000));
+  gui.add(pCount.setup("Particle", 1000, 500, 10000));
   gui.add(nl.setup("Launch", 1, 1, 50));
-  gui.add(iFrame.setup("Interval", 10, 1, 600));
-  gui.add(pmax.setup("Maximum Size", 10, 2, 12));
-  gui.add(pSize.setup("Point Size", 3, 1, 5));
+  gui.add(iFrame.setup("Interval", 20, 1, 600));
+  gui.add(pmax.setup("Maximum Size", 8, 2, 12));
+  gui.add(pSize.setup("Point Size", 3, 1, 10));
+  gui.add(toggle.setup("Rest", true));
   system = ManagementSystem();
 }
 
@@ -34,7 +35,11 @@ void ofApp::draw() {
   ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
   ofDisableAlphaBlending();
   ofEnableBlendMode(OF_BLENDMODE_ADD);
-  system.run(frameCount, pCount, nl, iFrame, pmax);
+  if (toggle == true) {
+    system.noLaunchRun(pSize);  
+  } else {
+    system.run(frameCount, pCount, nl, iFrame, pmax, pSize);
+  }
   gui.draw();
   frameCount ++;
   //capture(600, 1200);

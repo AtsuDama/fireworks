@@ -28,6 +28,7 @@ class ofApp : public ofBaseApp {
 		ofxIntSlider iFrame;
 		ofxIntSlider pmax;
 		ofxIntSlider pSize;
+		ofxToggle toggle;
 		ofxPanel gui;
 		int frameCount;
 		ofImage img;
