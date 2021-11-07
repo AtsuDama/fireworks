@@ -23,15 +23,22 @@ class ofApp : public ofBaseApp {
 
 		void capture(int start, int end);
 
+		void demoRun();
+
 		ofxIntSlider pCount;
 		ofxIntSlider nl;
 		ofxIntSlider iFrame;
 		ofxIntSlider pmax;
 		ofxIntSlider pSize;
-		ofxToggle toggle;
+		ofxIntSlider rInterval;
+		ofxIntSlider trace;
+		ofxIntSlider mode;
+		ofxToggle pause;
 		ofxPanel gui;
 		int frameCount;
 		ofImage img;
 		ManagementSystem system;
+		int guiState;
+		int demoState;
 
 };

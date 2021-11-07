@@ -6,7 +6,7 @@ FireworkRose::FireworkRose(int _n, int _pmax) : FireworkBase(_n, _pmax) {
 
 void FireworkRose::explode() {
   if (particles.size() == 1 && particles[0].velocity.y > 0) {
-    float k = floor(ofRandom(2, 5));
+    float k = floor(ofRandom(1, 5));
     float r = ofRandom(2, pmax);
     for (int i = 0; i < n; i++) {
       float x0 = particles[0].position.x;
@@ -23,7 +23,7 @@ void FireworkRose::explode() {
       particles_mod[i + 1].addForce(f);
     }
     float pan = ofMap(particles[0].position.x, 0, ofGetWidth(), -1.0f, 1.0f);
-    float vol = ofMap(pmax, 2, 12, 0.5f, 3.0f);
+    float vol = ofMap(pmax, 2, 12, 0.2f, 5.0f);
     soundPlayer.setPan(pan);
     soundPlayer.setVolume(vol);
     soundPlayer.play();

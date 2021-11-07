@@ -14,9 +14,9 @@ class ManagementSystem {
 
     ManagementSystem();
 
-    void fireworkSelector(int frameCount, int pCount, int nl, int iFrame, int pmax);
+    void fireworkSelector(int frameCount, int pCount, int nl, int iFrame, int pmax, int mode);
     void toMesh();
-    void run(int frameCount, int pCount, int nl, int iFrame, int pmax, int pSize);
+    void run(int frameCount, int pCount, int nl, int iFrame, int pmax, int pSize, int mode);
     void noLaunchRun(int pSize);
 		void programedLaunch();
 

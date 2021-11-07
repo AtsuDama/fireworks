@@ -8,13 +8,13 @@ void FireworkStar::explode() {
     float R = 5;
     float r = 3;
     float d = 5;
-    //float k = ofRandom(2, pmax) / 5;
+    float k = ofRandom(2, pmax) / 5;
     float theta_r = ofRandom(0,  TWO_PI / 5);
     for (int i = 0; i < n; i++) {
       float x0 = particles[0].position.x;
       float y0 = particles[0].position.y;
       float z0 = particles[0].position.z;
-      float k = ofRandom(0, pmax) / 5;
+      //float k = ofRandom(0, pmax) / 5;
       float theta = ofRandom(0, 3 * TWO_PI);
       float x = (R - r) * cos(theta) + d * cos((R - r) * theta / r);
       float y = (R - r) * sin(theta) - d * sin((R - r) * theta / r);
@@ -28,7 +28,7 @@ void FireworkStar::explode() {
       particles_mod[i + 1].addForce(f);
     }
     float pan = ofMap(particles[0].position.x, 0, ofGetWidth(), -1.0f, 1.0f);
-    float vol = ofMap(pmax, 2, 12, 0.5f, 3.0f);
+    float vol = ofMap(pmax, 2, 12, 0.2f, 5.0f);
     soundPlayer.setPan(pan);
     soundPlayer.setVolume(vol);
     soundPlayer.play();

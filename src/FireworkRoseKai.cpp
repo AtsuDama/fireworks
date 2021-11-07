@@ -15,7 +15,8 @@ void FireworkRoseKai::explode() {
     } else {
         p = 1.0;
     }
-    float r = ofRandom(2, pmax);
+    //float r = ofRandom(2, pmax);
+    float r = pmax;
     for (int i = 0; i < n; i++) {
       float x0 = particles[0].position.x;
       float y0 = particles[0].position.y;

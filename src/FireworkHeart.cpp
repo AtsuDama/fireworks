@@ -24,7 +24,7 @@ void FireworkHeart::explode() {
       particles_mod[i + 1].addForce(f);
     }
     float pan = ofMap(particles[0].position.x, 0, ofGetWidth(), -1.0f, 1.0f);
-    float vol = ofMap(pmax, 2, 12, 0.5f, 3.0f);
+    float vol = ofMap(pmax, 2, 12, 0.2f, 5.0f);
     soundPlayer.setPan(pan);
     soundPlayer.setVolume(vol);
     soundPlayer.play();

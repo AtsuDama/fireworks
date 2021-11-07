@@ -3,12 +3,18 @@
 FireworkBase::FireworkBase(int _n, int _pmax) {
   n = _n;
   h1 = ofRandom(1);
-  s1 = ofRandom(1);
-  b1 = ofRandom(1);
+  //s1 = ofRandom(1);
+  s1 = 1.0;
+  //b1 = ofRandom(1);
+  b1 = 1.0;
   h2 = ofRandom(1);
-  s2 = ofRandom(1);
-  b2 = ofRandom(1);
-  pmax = ofRandom(2, _pmax);
+  //s2 = ofRandom(1);
+  s2 = 1.0;
+  //b2 = ofRandom(1);
+  b2 = 1.0;
+
+  //pmax = ofRandom(2, _pmax);
+  pmax = _pmax;
   status = 0;
   particleType = ofRandom(0, 1);
   offset = int(ofRandom(0, 2));
@@ -49,7 +55,7 @@ void FireworkBase::explode() {
       particles_mod[i + 1].addForce(f);
     }
     float pan = ofMap(particles[0].position.x, 0, ofGetWidth(), -1.0f, 1.0f);
-    float vol = ofMap(pmax, 2, 12, 0.5f, 3.0f);
+    float vol = ofMap(pmax, 2, 12, 0.2f, 5.0f);
     soundPlayer.setPan(pan);
     soundPlayer.setVolume(vol);
     soundPlayer.play();
