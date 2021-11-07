@@ -13,6 +13,7 @@ Five parameters are controllable.
 |Interval|Launching interval (frame)|
 |Maximum size|Maximum size of fireworks|
 |Point size|Point size of fireworks|
+|Rest|If checked, Launching stops.|
 
 ## Screenshots
 <img src = "img/screenshot_01.jpg">
