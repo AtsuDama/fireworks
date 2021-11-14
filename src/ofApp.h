@@ -38,7 +38,7 @@ class ofApp : public ofBaseApp {
 		int frameCount;
 		ofImage img;
 		ManagementSystem system;
-		int guiState;
-		int demoState;
+		bool guiShow;
+		bool demoShow;
 
 };

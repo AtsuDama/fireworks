@@ -30,7 +30,9 @@ void ManagementSystem::fireworkSelector(int frameCount, int pCount, int nl, int 
         fireworks.push_back(new FireworkHeart(pCount / 2, pmax));
       } else if (mode == 3) {
         fireworks.push_back(new FireworkStar(pCount / 2, pmax));
-      }
+      } else if (mode == 4) {
+        fireworks.push_back(new FireworkChildren(pCount / 2, pmax));
+      } 
     }
   }
 }

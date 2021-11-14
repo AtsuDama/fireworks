@@ -7,6 +7,7 @@
 #include "FireworkRoseKai.h"
 #include "FireworkHeart.h"
 #include "FireworkStar.h"
+#include "FireworkChildren.h"
 
 class ManagementSystem {
 

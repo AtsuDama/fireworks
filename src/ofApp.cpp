@@ -19,9 +19,9 @@ void ofApp::setup() {
   gui.add(pSize.setup("Point size", 2, 1, 10)); //パーティクルサイズ
   gui.add(rInterval.setup("Refresh interval", 2, 1, 10)); //リフレッシュ間隔（黒い四角で塗る間隔）
   gui.add(trace.setup("Trace", 25, 0, 100));  //黒い四角の透過具合
-  gui.add(mode.setup("Shape mode", 0, 0, 3)); //モード
+  gui.add(mode.setup("Shape mode", 0, 0, 4)); //モード
   gui.add(pause.setup("Pause", true)); //チェックで花火を打ち上げない
-  guiState = 1; //GUIの表示を切り替えるためのステート
+  guiShow = true; //GUIの表示を切り替えるためのステート
   system = ManagementSystem();
 }
 
@@ -41,7 +41,7 @@ void ofApp::draw() {
   ofEnableBlendMode(OF_BLENDMODE_ADD);
   
   //Demo用の記述
-  if (demoState == 1) {
+  if (demoShow == true) {
     demoRun();
   }
 
@@ -52,7 +52,7 @@ void ofApp::draw() {
     system.run(frameCount, pCount, nl, iFrame, pmax, pSize, mode);  //トグルオフで花火を打ち上げる
   }
 
-  if (guiState == 1) {
+  if (guiShow == true) {
     gui.draw();   //gキーでGUIをオンオフ
   }
   frameCount ++;  //フレーム数カウント用
@@ -63,7 +63,7 @@ void ofApp::draw() {
 void ofApp::capture(int start, int end) {
   if (frameCount > start && frameCount < end) {
     img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-    img.save("tmp/screenshot_" + ofGetTimestampString() + ".png", OF_IMAGE_QUALITY_BEST);
+    img.save("tmp/screenshot_" + ofGetTimestampString() + ".jpeg", OF_IMAGE_QUALITY_BEST);
   }
 }
 //--------------------------------------------------------------
@@ -111,46 +111,57 @@ void ofApp::keyPressed(int key) {
   //sキーでスクリーンショットを取得
   if (key == 's') {
     img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-    img.save("screenshot_" + ofGetTimestampString() + ".png", OF_IMAGE_QUALITY_BEST);
+    img.save("screenshot_" + ofGetTimestampString() + ".jpeg", OF_IMAGE_QUALITY_BEST);
   }
   //gキーでGUIパネルをオンオフ
   if (key == 'g') {
-    if (guiState == 0) {
-      guiState = 1;
+    if (guiShow == false) {
+      guiShow = true;
     } else {
-      guiState = 0;
+      guiShow = false;
     }
   }
-  //nキーで通常モード
-  if (key == 'n') {
+  //0キーで通常モード
+  if (key == '0') {
     mode = 0;
   }
-  //rキーで"Rose curve"モード
-  if (key == 'r') {
+  //1キーで"Rose curve"モード
+  if (key == '1') {
     mode = 1;
   }
-  //hキーで"heart shape"モード
-  if (key == 'h') {
+  //2キーで"heart shape"モード
+  if (key == '2') {
     mode = 2;
   }
-  //sキーで"star shape"モード
-  if (key == 's') {
+  //3キーで"star shape"モード
+  if (key == '3') {
     mode = 3;
+  }
+  //4キーで"Children"モード
+  if (key == '4') {
+    mode = 4;
   }
 
   //dキーでデモスタート
   if (key == 'd') {
     frameCount = 0;
-    if (demoState == 0) {
-      demoState = 1;
+    if (demoShow == false) {
+      demoShow = true;
       pause = false;
     } else {
-      demoState = 0;
+      demoShow = false;
       pause = true;
     }
   }
-  
-  
+
+  //pキーで打ち上げオンオフ切り替え
+  if (key == 'p') { 
+    if (pause == true) {
+      pause = false;  
+    } else {
+      pause = true;
+    }
+  }
 }
 
 //--------------------------------------------------------------
